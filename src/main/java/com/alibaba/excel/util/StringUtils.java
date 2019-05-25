@@ -296,7 +296,7 @@
 /*      */ 
 /*  518 */     char baseChar = str.charAt(0);
 /*      */     char updatedChar;
-/*      */     char updatedChar;
+/*      */
 /*  520 */     if (capitalize) {
 /*  521 */       updatedChar = Character.toUpperCase(baseChar);
 /*      */     }

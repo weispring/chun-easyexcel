@@ -1,6 +1,5 @@
 package com.alibaba.excel.annotation;
 
-import java.lang.annotation.Annotation;
 import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -11,11 +10,12 @@ import java.lang.annotation.Target;
 @Inherited
 public @interface ExcelProperty
 {
-  public abstract String[] value();
+
+  public abstract String[] value() default {};
 
   public abstract int index();
 
-  public abstract String format();
+  public abstract String format() default "";
 }
 
 /* Location:           C:\Users\Dell\Desktop\easyexcel-1.1.2-beta5.jar

@@ -8,6 +8,18 @@
     <artifactId>chun-easyexcel</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java>1.8</java>
+        <lombok>1.18.2</lombok>
+        <mysql>6.0.6</mysql>
+        <jdom>2.0.2</jdom>
+        <dom4j>2.1.1</dom4j>
+        <slf4j>1.7.25</slf4j>
+        <log4j2>2.11.1</log4j2>
+        <junit>4.12</junit>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.poi</groupId>
@@ -31,6 +43,69 @@
             <scope>test</scope>
         </dependency>
 
+
+
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- log4j2 start -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j2}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.12</version>
+        </dependency>
+
+
+         <dependency>
+             <groupId>org.apache.logging.log4j</groupId>
+             <artifactId>log4j-core</artifactId>
+             <version>${log4j2}</version>
+         </dependency>
+
+
+
+
+
+        <!--  <dependency>
+              <groupId>mysql</groupId>
+              <artifactId>mysql-connector-java</artifactId>
+              <version>${mysql}</version>
+          </dependency>
+
+          <dependency>
+              <groupId>org.jdom</groupId>
+              <artifactId>jdom</artifactId>
+              <version>${jdom}</version>
+          </dependency>
+
+          <dependency>
+              <groupId>org.dom4j</groupId>
+              <artifactId>dom4j</artifactId>
+              <version>${dom4j}</version>
+          </dependency>-->
+
+        <!-- log4j2 end -->
+
+
+
+
+
     </dependencies>
 <!--    <distributionManagement>
         <snapshotRepository>
@@ -49,8 +124,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
             <plugin>

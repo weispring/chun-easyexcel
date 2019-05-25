@@ -135,7 +135,7 @@
 /*     */       }
 /* 143 */       for (String dateFormat : DATE_FORMAT_LIST) {
 /*     */         try {
-/* 145 */           SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat);
+/* 145 */           simpleDateFormat = new SimpleDateFormat(dateFormat);
 /* 146 */           date = simpleDateFormat.parse(value);
 /*     */         } catch (ParseException localParseException1) {
 /*     */         }
@@ -188,7 +188,6 @@
 /*     */ 
 /*     */   public static String formatDate(Date cellValue, String format)
 /*     */   {
-/*     */     SimpleDateFormat simpleDateFormat;
 /*     */     SimpleDateFormat simpleDateFormat;
 /* 202 */     if (!StringUtils.isEmpty(format))
 /* 203 */       simpleDateFormat = new SimpleDateFormat(format);

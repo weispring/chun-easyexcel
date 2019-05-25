@@ -28,7 +28,7 @@
 /*     */   private void initColumnProperties()
 /*     */   {
 /*  46 */     if (this.headClazz != null) {
-/*  47 */       List fieldList = new ArrayList();
+/*  47 */       List<Field> fieldList = new ArrayList();
 /*  48 */       Class tempClass = this.headClazz;
 /*     */ 
 /*  51 */       while (tempClass != null) {
@@ -82,7 +82,7 @@
 /*     */     {
 /*     */       List list;
 /* 107 */       if (this.head.size() <= i) {
-/* 108 */         List list = new ArrayList();
+/* 108 */         list = new ArrayList();
 /* 109 */         this.head.add(list);
 /*     */       } else {
 /* 111 */         list = (List)this.head.get(0);

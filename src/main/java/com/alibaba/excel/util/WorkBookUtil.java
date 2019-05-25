@@ -18,7 +18,6 @@
 /*    */     throws IOException
 /*    */   {
 /*    */     Workbook workbook;
-/*    */     Workbook workbook;
 /* 23 */     if (ExcelTypeEnum.XLS.equals(excelType)) {
 /* 24 */       workbook = templateInputStream == null ? new HSSFWorkbook() : new HSSFWorkbook(new POIFSFileSystem(templateInputStream));
 /*    */     }
