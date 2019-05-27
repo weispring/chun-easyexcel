@@ -123,7 +123,7 @@ public abstract class ObjectUtils {
         for(int var4 = 0; var4 < var3; ++var4) {
             Enum candidate = var2[var4];
             if (candidate.toString().equalsIgnoreCase(constant)) {
-                return (E)candidate;
+                return (E) candidate;
             }
         }
 
@@ -139,7 +139,7 @@ public abstract class ObjectUtils {
         }
 
         int newArrLength = array != null ? array.length + 1 : 1;
-        A[] newArr = (A[]) Array.newInstance(compType, newArrLength);
+        A[] newArr = (A[])((Object[])Array.newInstance(compType, newArrLength));
         if (array != null) {
             System.arraycopy(array, 0, newArr, 0, array.length);
         }

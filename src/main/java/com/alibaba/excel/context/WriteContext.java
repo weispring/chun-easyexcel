@@ -58,14 +58,19 @@
 /* 112 */     if ((null == this.currentSheetParam) || (this.currentSheetParam.getSheetNo() != sheet.getSheetNo())) {
 /* 113 */       cleanCurrentSheet();
 /* 114 */       this.currentSheetParam = sheet;
-/*     */       try {
-/* 116 */         this.currentSheet = this.workbook.getSheetAt(sheet.getSheetNo() - 1);
-/*     */       } catch (Exception e) {
-/* 118 */         this.currentSheet = WorkBookUtil.createSheet(this.workbook, sheet);
-/* 119 */         if (null != this.afterWriteHandler) {
-/* 120 */           this.afterWriteHandler.sheet(sheet.getSheetNo(), this.currentSheet);
-/*     */         }
-/*     */       }
+/*     */
+
+        try {
+        this.currentSheet = this.workbook.getSheetAt(sheet.getSheetNo() - 1);
+        } catch (Exception e) {
+            /* 118 */         this.currentSheet = WorkBookUtil.createSheet(this.workbook, sheet);
+            /* 119 */         if (null != this.afterWriteHandler) {
+                /* 120 */           this.afterWriteHandler.sheet(sheet.getSheetNo(), this.currentSheet);
+                /*     */         }
+            /*     */       }
+
+/* 116 */
+/*     */
 /* 123 */       StyleUtil.buildSheetStyle(this.currentSheet, sheet.getColumnWidthMap());
 /*     */ 
 /* 125 */       initCurrentSheet(sheet);
@@ -229,7 +234,7 @@
 /*     */   }
 /*     */ }
 
-/* Location:           C:\Users\Dell\Desktop\easyexcel-1.1.2-beta5.jar
+/* Location:           C:\Users\Dell\Desktop\easyexcel-1.1.2-vphonor-SNAPSHOT.jar
  * Qualified Name:     com.alibaba.excel.context.WriteContext
  * JD-Core Version:    0.6.0
  */

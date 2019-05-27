@@ -7,6 +7,7 @@ package com.alibaba.excel.analysis;
 
 import com.alibaba.excel.analysis.v03.XlsSaxAnalyser;
 import com.alibaba.excel.analysis.v07.XlsxSaxAnalyser;
+import com.alibaba.excel.analysis.v07.XlsxSaxAnalyser2;
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.context.AnalysisContextImpl;
 import com.alibaba.excel.event.AnalysisEventListener;
@@ -14,18 +15,39 @@ import com.alibaba.excel.exception.ExcelAnalysisException;
 import com.alibaba.excel.metadata.Sheet;
 import com.alibaba.excel.modelbuild.ModelBuildEventListener;
 import com.alibaba.excel.support.ExcelTypeEnum;
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.InputStream;
 import java.util.List;
 
+@Slf4j
 public class ExcelAnalyserImpl implements ExcelAnalyser {
     private AnalysisContext analysisContext;
     private BaseSaxAnalyser saxAnalyser;
+    private Boolean isLowerVison = false;
+    private String tmpPath;
 
     public ExcelAnalyserImpl(InputStream inputStream, ExcelTypeEnum excelTypeEnum, Object custom, AnalysisEventListener eventListener, boolean trim) {
         this.analysisContext = new AnalysisContextImpl(inputStream, excelTypeEnum, custom, eventListener, trim);
     }
 
+    public ExcelAnalyserImpl(InputStream inputStream, ExcelTypeEnum excelTypeEnum, Object custom, AnalysisEventListener eventListener, boolean trim, Boolean isLowerVison, String tmpPath) {
+        this.isLowerVison = isLowerVison;
+        this.tmpPath = tmpPath;
+        this.analysisContext = new AnalysisContextImpl(inputStream, excelTypeEnum, custom, eventListener, trim);
+    }
+
     private BaseSaxAnalyser getSaxAnalyser() {
+        //方便测试 todo
+        if (isLowerVison){
+            try {
+                this.saxAnalyser = new XlsxSaxAnalyser2(this.analysisContext, this.tmpPath);
+            }catch (Exception e){
+                log.error("err:{}",e);
+            }
+            return saxAnalyser;
+        }
+
         if (this.saxAnalyser != null) {
             return this.saxAnalyser;
         } else {
@@ -36,7 +58,11 @@ public class ExcelAnalyserImpl implements ExcelAnalyser {
                             this.saxAnalyser = new XlsSaxAnalyser(this.analysisContext);
                             break;
                         case XLSX:
-                            this.saxAnalyser = new XlsxSaxAnalyser(this.analysisContext);
+                            if (this.isLowerVison) {
+                                this.saxAnalyser = new XlsxSaxAnalyser2(this.analysisContext, this.tmpPath);
+                            } else {
+                                this.saxAnalyser = new XlsxSaxAnalyser(this.analysisContext);
+                            }
                     }
                 } else {
                     try {

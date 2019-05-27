@@ -296,7 +296,6 @@
 /*      */ 
 /*  518 */     char baseChar = str.charAt(0);
 /*      */     char updatedChar;
-/*      */
 /*  520 */     if (capitalize) {
 /*  521 */       updatedChar = Character.toUpperCase(baseChar);
 /*      */     }
@@ -747,7 +746,7 @@
 /*      */   }
 /*      */ }
 
-/* Location:           C:\Users\Dell\Desktop\easyexcel-1.1.2-beta5.jar
+/* Location:           C:\Users\Dell\Desktop\easyexcel-1.1.2-vphonor-SNAPSHOT.jar
  * Qualified Name:     com.alibaba.excel.util.StringUtils
  * JD-Core Version:    0.6.0
  */

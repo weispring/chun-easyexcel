@@ -36,6 +36,14 @@ public class EasyExcelFactory {
         (new ExcelReader(in, (Object)null, listener)).read(sheet);
     }
 
+    public static void readBigXlsxBySax(InputStream in, Sheet sheet, AnalysisEventListener listener, String tmpPath) {
+        (new ExcelReader(in, (Object)null, listener, Boolean.TRUE, true, tmpPath)).read(sheet);
+    }
+
+    public static void readBigXlsxBySax(InputStream in, Sheet sheet, AnalysisEventListener listener) {
+        (new ExcelReader(in, (Object)null, listener, Boolean.TRUE, true, (String)null)).read(sheet);
+    }
+
     public static ExcelReader getReader(InputStream in, AnalysisEventListener listener) {
         return new ExcelReader(in, (Object)null, listener);
     }

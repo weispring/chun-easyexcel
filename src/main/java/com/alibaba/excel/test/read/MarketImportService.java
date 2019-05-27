@@ -46,7 +46,7 @@ public class MarketImportService {
         try {
             inputStream = new FileInputStream(file);
             AnalysisEventListener<BusinessImport> excelListener = new ImportAddListener();
-            EasyExcelFactory.readBySax(inputStream, new Sheet(1, 1, BusinessImport.class),
+            EasyExcelFactory.readBigXlsxBySax(inputStream, new Sheet(1, 1, BusinessImport.class),
                     excelListener);
         } catch (IOException e) {
             log.error(e.getMessage());

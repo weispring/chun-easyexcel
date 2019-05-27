@@ -53,7 +53,7 @@ public abstract class CollectionUtils {
             String key;
             Object value;
             if (props != null) {
-                for(Enumeration en = props.propertyNames(); en.hasMoreElements(); map.put((K)key, (V) value)) {
+                for(Enumeration en = props.propertyNames(); en.hasMoreElements(); map.put((K)key, (V)value)) {
                     key = (String)en.nextElement();
                     value = props.get(key);
                     if (value == null) {

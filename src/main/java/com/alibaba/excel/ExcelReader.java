@@ -20,63 +20,70 @@
 /*  38 */     this(in, excelTypeEnum, customContent, eventListener, true);
 /*     */   }
 /*     */ 
+/*     */   public ExcelReader(InputStream in, Object customContent, AnalysisEventListener eventListener, boolean trim, Boolean isLowerVison, String tmpPath)
+/*     */   {
+/*  43 */     ExcelTypeEnum excelTypeEnum = ExcelTypeEnum.valueOf(in);
+/*  44 */     validateParam(in, eventListener);
+/*  45 */     this.analyser = new ExcelAnalyserImpl(in, excelTypeEnum, customContent, eventListener, trim, isLowerVison, tmpPath);
+/*     */   }
+/*     */ 
 /*     */   public ExcelReader(InputStream in, Object customContent, AnalysisEventListener eventListener)
 /*     */   {
-/*  50 */     this(in, customContent, eventListener, true);
+/*  57 */     this(in, customContent, eventListener, true);
 /*     */   }
 /*     */ 
 /*     */   @Deprecated
 /*     */   public ExcelReader(AnalysisParam param, AnalysisEventListener eventListener)
 /*     */   {
-/*  61 */     this(param.getIn(), param.getExcelTypeEnum(), param.getCustomContent(), eventListener, true);
+/*  68 */     this(param.getIn(), param.getExcelTypeEnum(), param.getCustomContent(), eventListener, true);
 /*     */   }
 /*     */ 
 /*     */   @Deprecated
 /*     */   public ExcelReader(InputStream in, ExcelTypeEnum excelTypeEnum, Object customContent, AnalysisEventListener eventListener, boolean trim)
 /*     */   {
-/*  78 */     validateParam(in, eventListener);
-/*  79 */     this.analyser = new ExcelAnalyserImpl(in, excelTypeEnum, customContent, eventListener, trim);
+/*  86 */     validateParam(in, eventListener);
+/*  87 */     this.analyser = new ExcelAnalyserImpl(in, excelTypeEnum, customContent, eventListener, trim);
 /*     */   }
 /*     */ 
 /*     */   public ExcelReader(InputStream in, Object customContent, AnalysisEventListener eventListener, boolean trim)
 /*     */   {
-/*  94 */     ExcelTypeEnum excelTypeEnum = ExcelTypeEnum.valueOf(in);
-/*  95 */     validateParam(in, eventListener);
-/*  96 */     this.analyser = new ExcelAnalyserImpl(in, excelTypeEnum, customContent, eventListener, trim);
+/* 102 */     ExcelTypeEnum excelTypeEnum = ExcelTypeEnum.valueOf(in);
+/* 103 */     validateParam(in, eventListener);
+/* 104 */     this.analyser = new ExcelAnalyserImpl(in, excelTypeEnum, customContent, eventListener, trim);
 /*     */   }
 /*     */ 
 /*     */   public void read()
 /*     */   {
-/* 103 */     this.analyser.analysis();
+/* 111 */     this.analyser.analysis();
 /*     */   }
 /*     */ 
 /*     */   public void read(Sheet sheet)
 /*     */   {
-/* 112 */     this.analyser.analysis(sheet);
+/* 120 */     this.analyser.analysis(sheet);
 /*     */   }
 /*     */ 
 /*     */   @Deprecated
 /*     */   public void read(Sheet sheet, Class<? extends BaseRowModel> clazz)
 /*     */   {
-/* 123 */     sheet.setClazz(clazz);
-/* 124 */     this.analyser.analysis(sheet);
+/* 131 */     sheet.setClazz(clazz);
+/* 132 */     this.analyser.analysis(sheet);
 /*     */   }
 /*     */ 
 /*     */   public List<Sheet> getSheets()
 /*     */   {
-/* 133 */     return this.analyser.getSheets();
+/* 141 */     return this.analyser.getSheets();
 /*     */   }
 /*     */ 
 /*     */   private void validateParam(InputStream in, AnalysisEventListener eventListener)
 /*     */   {
-/* 143 */     if (eventListener == null)
-/* 144 */       throw new IllegalArgumentException("AnalysisEventListener can not null");
-/* 145 */     if (in == null)
-/* 146 */       throw new IllegalArgumentException("InputStream can not null");
+/* 151 */     if (eventListener == null)
+/* 152 */       throw new IllegalArgumentException("AnalysisEventListener can not null");
+/* 153 */     if (in == null)
+/* 154 */       throw new IllegalArgumentException("InputStream can not null");
 /*     */   }
 /*     */ }
 
-/* Location:           C:\Users\Dell\Desktop\easyexcel-1.1.2-beta5.jar
+/* Location:           C:\Users\Dell\Desktop\easyexcel-1.1.2-vphonor-SNAPSHOT.jar
  * Qualified Name:     com.alibaba.excel.ExcelReader
  * JD-Core Version:    0.6.0
  */
