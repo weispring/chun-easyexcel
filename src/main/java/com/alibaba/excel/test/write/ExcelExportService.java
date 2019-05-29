@@ -38,7 +38,7 @@ public class ExcelExportService {
 
             BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
             ExcelWriter writer = new ExcelWriter(bos, ExcelTypeEnum.XLSX);
-            int sheets = 5;
+            int sheets = 1;
             CountDownLatch countDownLatch = new CountDownLatch(sheets);
             Long start = System.currentTimeMillis();
             ThreadPoolExecutor executor = new ThreadPoolExecutor(2,2,3, TimeUnit.SECONDS,new LinkedBlockingDeque<>(10));

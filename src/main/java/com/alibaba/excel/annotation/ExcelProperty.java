@@ -13,7 +13,7 @@ public @interface ExcelProperty
 {
   public abstract String[] value() default {};
 
-  public abstract int index();
+  public abstract int index() default 0;
 
   public abstract String format() default "";
 }
