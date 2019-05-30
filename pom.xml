@@ -8,6 +8,11 @@
     <artifactId>chun-easyexcel</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.4.RELEASE</version>
+    </parent>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java>1.8</java>
@@ -18,9 +23,31 @@
         <slf4j>1.7.25</slf4j>
         <log4j2>2.11.1</log4j2>
         <junit>4.12</junit>
+        <springMvc>4.3.11.RELEASE</springMvc>
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${springMvc}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${springMvc}</version>
+        </dependency>
+
+        <dependency>
+            <groupId> org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+
+
+
+
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
