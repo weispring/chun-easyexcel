@@ -23,7 +23,7 @@
         <slf4j>1.7.25</slf4j>
         <log4j2>2.11.1</log4j2>
         <junit>4.12</junit>
-        <springMvc>4.3.11.RELEASE</springMvc>
+        <springMvc>6.0.0</springMvc>
     </properties>
 
     <dependencies>
